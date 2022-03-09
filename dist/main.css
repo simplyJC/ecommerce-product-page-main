@@ -1,0 +1,376 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+/* Box sizing rules - Kevin Powell */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/**
+*## Colors
+*### Primary
+*
+*- Orange: hsl(26, 100%, 55%)
+*- Pale orange: hsl(25, 100%, 94%)
+*
+*### Neutral
+*
+*- Very vark blue: hsl(220, 13%, 13%)
+*- Dark grayish blue: hsl(219, 9%, 45%)
+*- Grayish blue: hsl(220, 14%, 75%)
+*- Light grayish blue: hsl(223, 64%, 98%)
+*- White: hsl(0, 0%, 100%)
+*- Black (with 75% opacity for lightbox background): hsl(0, 0%, 0%)
+*/
+.cart {
+  background: white;
+  max-width: 20rem;
+  position: absolute;
+  top: 3.5rem;
+  right: 0;
+  margin: 1rem;
+  z-index: 99;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+.cart--show {
+  display: block;
+}
+.cart--empty {
+  padding: 3rem 2rem;
+  width: 20rem;
+}
+.cart--empty p {
+  padding: 2rem 3rem;
+  text-align: center;
+  display: block;
+}
+.cart-title {
+  font-weight: bold;
+  padding: 1rem 0;
+  border-bottom: 1px solid #b6bcc8;
+  padding: 1rem;
+}
+.cart-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+.cart-image-container {
+  width: 3rem;
+}
+.cart-image-container img {
+  border-radius: 0.3rem;
+}
+.cart-delete-container {
+  width: 2rem;
+}
+.cart-btn-container {
+  width: 100%;
+  padding: 1.2rem;
+}
+.cart__btn--checkout {
+  width: 100%;
+  background: #ff7d1a;
+  border-style: none;
+  color: white;
+  padding-block: 0.8rem;
+  border-radius: 0.4rem;
+}
+
+body {
+  width: 100%;
+  font-size: 1rem;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.item {
+  position: relative;
+}
+.item-container {
+  padding: 1rem;
+}
+.item__brand {
+  color: #ff7d1a;
+  font-weight: 700;
+}
+.item__title {
+  line-height: 2.3rem;
+  padding: 1rem 0 1rem 0;
+}
+.item__description {
+  color: #68707d;
+}
+.item__price-info {
+  display: flex;
+  padding: 1rem 0;
+  justify-content: space-between;
+  align-items: center;
+}
+.item__price {
+  font-size: 1.5rem;
+  padding-right: 1rem;
+}
+.item__discount {
+  padding: 0.3rem 0.5rem;
+  font-weight: 700;
+  color: #ff7d1a;
+  background: #ffede0;
+  border-radius: 0.5rem;
+}
+.item__price-orig {
+  font-weight: 700;
+  color: #b6bcc8;
+  text-decoration: line-through;
+}
+.item__quantity {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 1rem;
+  background: #f7f8fd;
+}
+.item__count {
+  font-weight: 700;
+}
+.item__add, .item__deduct {
+  border: none;
+  background: none;
+  padding-inline: 1.5rem;
+}
+.item__add-cart {
+  margin-block: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border: none;
+  background: #ff7d1a;
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: 700;
+}
+.item__icon-cart {
+  fill: black;
+}
+
+.arrow--previous,
+.arrow--next {
+  position: absolute;
+  width: 2.5rem;
+  background: #f7f8fd;
+  padding: 0.7rem;
+  border-radius: 50%;
+  border-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow--previous {
+  top: 50%;
+  left: 1rem;
+}
+
+.arrow--next {
+  top: 50%;
+  right: 1rem;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  color: var(--clr-bottom-text);
+}
+@media (min-width: 900px) {
+  .attribution {
+    padding-top: 0;
+  }
+}
+
+.attribution a {
+  color: var(--clr-bottom-text);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+.nav__left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nav__lists {
+  font-size: 0.9rem;
+  line-height: 2rem;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+.nav__lists-container {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: white;
+  width: 50vw;
+  height: 100vh;
+  padding: 1rem 2rem 1rem 1rem;
+  -webkit-animation: slide-in 0.3s ease-in;
+          animation: slide-in 0.3s ease-in;
+}
+@media (min-width: 900px) {
+  .nav__lists-container {
+    display: block;
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 0;
+    align-self: flex-start;
+    -webkit-animation: none;
+            animation: none;
+    display: flex;
+  }
+}
+.nav__lists-container--show {
+  display: block;
+}
+@media (min-width: 900px) {
+  .nav__lists {
+    display: flex;
+    margin-top: 0;
+    gap: 1rem;
+  }
+}
+.nav__link {
+  text-decoration: none;
+}
+.nav__avatar {
+  max-width: 1.5rem;
+}
+.nav--close {
+  display: block;
+}
+@media (min-width: 900px) {
+  .nav--close {
+    display: none;
+  }
+}
+.nav--open {
+  display: block;
+}
+@media (min-width: 900px) {
+  .nav--open {
+    display: none;
+  }
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+    transform: translateX(-50vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-50vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}/*# sourceMappingURL=main.css.map */

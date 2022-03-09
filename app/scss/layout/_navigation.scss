@@ -1,0 +1,92 @@
+@use '../abstracts/' as *;
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+  max-width: 80rem;
+  margin: 0 auto;
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__lists {
+    //display: none;
+
+    &-container {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: $clr-neutral-white;
+      width: 50vw;
+      height: 100vh;
+      padding: 1rem 2rem 1rem 1rem;
+      animation: slide-in 0.3s ease-in;
+      @include media-query(large) {
+        display: block;
+        position: relative;
+        width: auto;
+        height: auto;
+        padding: 0;
+        align-self: flex-start;
+        animation: none;
+        display: flex;
+      }
+      &--show {
+        display: block;
+      }
+    }
+
+    font-size: 0.9rem;
+    line-height: 2rem;
+    font-weight: $fw-bold;
+    margin-top: 2rem;
+    @include media-query(large) {
+      display: flex;
+      margin-top: 0;
+      gap: 1rem; 
+    }
+  }
+  &__link {
+    text-decoration: none;
+  }
+  &__avatar {
+    max-width: 1.5rem;
+  }
+
+  &--close {
+    display: block;
+    @include media-query(large) {
+      display: none;
+    }
+  }
+  &--open {
+    display: block;
+    @include media-query(large) {
+      display: none;
+    }
+  }
+}
+
+//Animation Key Frames
+@keyframes slide-in {
+  0% {
+    transform: translateX(-50vw);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

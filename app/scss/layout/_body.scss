@@ -1,0 +1,118 @@
+@use '../abstracts' as *;
+@use '../base' as *;
+
+body {
+  width: 100%;
+  font-size: 1rem;
+  font-family: $ff-primary;
+}
+//Item Design
+.item {
+  position: relative;
+
+  &-container {
+    padding: 1rem;
+  }
+  &__brand {
+    color: $clr-primary-orange;
+    font-weight: 700;
+  }
+  &__title {
+    line-height: 2.3rem;
+    padding: 1rem 0 1rem 0;
+  }
+  &__description {
+    color: $clr-neutral-dark-gray;
+  }
+  &__price-info {
+    display: flex;
+    padding: 1rem 0;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__price {
+    font-size: 1.5rem;
+    padding-right: 1rem;
+  }
+  &__discount {
+    padding: 0.3rem 0.5rem;
+    font-weight: 700;
+    color: $clr-primary-orange;
+    background: $clr-primary-pale-orange;
+    border-radius: 0.5rem;
+  }
+  &__price-orig {
+    font-weight: 700;
+    color: $clr-neutral-gray;
+    text-decoration: line-through;
+  }
+
+  &__quantity {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 1rem;
+    background: $clr-neutral-light-gray;
+  }
+  &__count {
+    font-weight: 700;
+  }
+  &__add,
+  &__deduct {
+    border: none;
+    background: none;
+    padding-inline: 1.5rem;
+  }
+  &__add-cart {
+    margin-block: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border: none;
+    background: $clr-primary-orange;
+    color: white;
+    border-radius: 0.5rem;
+    font-weight: 700;
+  }
+  &__icon-cart {
+    fill: black;
+    
+  }
+}
+//Buttons
+.arrow--previous,
+.arrow--next {
+  position: absolute;
+  width: 2.5rem;
+  background: $clr-neutral-light-gray;
+  padding: 0.7rem;
+  border-radius: 50%;
+  border-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.arrow--previous {
+  top: 50%;
+  left: 1rem;
+}
+.arrow--next {
+  top: 50%;
+  right: 1rem;
+}
+
+//Footer
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  color: var(--clr-bottom-text);
+
+  @include media-query(large) {
+    padding-top: 0;
+  }
+}
+.attribution a {
+  color: var(--clr-bottom-text);
+}

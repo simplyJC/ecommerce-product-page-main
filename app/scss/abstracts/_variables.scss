@@ -1,0 +1,44 @@
+@use '../base/' as *;
+$breakpoints: (
+  large: 900px,
+  extra-large: 900px,
+);
+
+
+
+$ff-primary: 'Kumbh Sans', sans-serif;
+$fw-regular: 400;
+$fw-bold: 700;
+
+/**
+*## Colors
+*### Primary
+*
+*- Orange: hsl(26, 100%, 55%)
+*- Pale orange: hsl(25, 100%, 94%)
+*
+*### Neutral
+*
+*- Very vark blue: hsl(220, 13%, 13%)
+*- Dark grayish blue: hsl(219, 9%, 45%)
+*- Grayish blue: hsl(220, 14%, 75%)
+*- Light grayish blue: hsl(223, 64%, 98%)
+*- White: hsl(0, 0%, 100%)
+*- Black (with 75% opacity for lightbox background): hsl(0, 0%, 0%)
+*/
+
+
+$clr-primary-orange:  hsl(26, 100%, 55%); 
+$clr-primary-pale-orange:  hsl(25, 100%, 94%); 
+$clr-neutral-dark-blue:hsl(220, 13%, 13%); 
+$clr-neutral-dark-gray: hsl(219, 9%, 45%); 
+$clr-neutral-gray: hsl(220, 14%, 75%); 
+$clr-neutral-light-gray:  hsl(223, 64%, 98%); 
+$clr-neutral-white: hsl(0, 0%, 100%); 
+$clr-neutral-black: hsl(0, 0%, 0%); 
+
+
+
+
+
+
