@@ -7,6 +7,30 @@ body {
   font-family: $ff-primary;
 }
 //Item Design
+main {
+  @include media-query(large) {
+    display: flex;
+    padding: 1rem;
+    max-width: 70rem;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+.left-container {
+  //padding:1rem 2rem;
+  @include media-query(large) {
+    max-width: 30rem;
+    padding: 2rem 2rem;
+  }
+}
+.right-container {
+  // padding: 1rem 5rem;
+  @include media-query(large) {
+    max-width: 30rem;
+  }
+}
 .item {
   position: relative;
 
@@ -16,6 +40,12 @@ body {
   &__brand {
     color: $clr-primary-orange;
     font-weight: 700;
+  }
+  &__image{
+    
+    @include media-query(large){
+      border-radius: 0.5rem;
+    }
   }
   &__title {
     line-height: 2.3rem;
@@ -29,6 +59,11 @@ body {
     padding: 1rem 0;
     justify-content: space-between;
     align-items: center;
+    @include media-query (large){
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
   }
   &__price {
     font-size: 1.5rem;
@@ -52,6 +87,20 @@ body {
     justify-content: space-between;
     padding-block: 1rem;
     background: $clr-neutral-light-gray;
+    border-radius: 0.5rem;
+    @include media-query(large) {
+      max-width: 15rem;
+      // margin: 0 1rem;
+      padding: 1rem 1.5rem;
+    }
+    &-container {
+      @include media-query(large) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
   }
   &__count {
     font-weight: 700;
@@ -61,6 +110,11 @@ body {
     border: none;
     background: none;
     padding-inline: 1.5rem;
+    @include media-query(large) {
+      //max-width: 15rem;
+      // margin: 0 1rem;
+      // padding: 1rem;
+    }
   }
   &__add-cart {
     margin-block: 1rem;
@@ -75,10 +129,27 @@ body {
     color: white;
     border-radius: 0.5rem;
     font-weight: 700;
+    @include media-query(large) {
+      max-width: 15rem;
+      // margin: 0 1rem;
+      padding: 1rem 3rem;
+    }
   }
   &__icon-cart {
     fill: black;
-    
+  }
+  &__thumbnails {
+    display: none;
+    @include media-query(large) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__thumbnail {
+    //padding-block: 1rem;
+    margin: 1rem 0;
+    width: 5rem;
+    border-radius: 0.8rem;
   }
 }
 //Buttons
@@ -93,6 +164,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  @include media-query(large) {
+    display: none;
+  }
 }
 .arrow--previous {
   top: 50%;

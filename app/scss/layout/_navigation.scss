@@ -12,6 +12,9 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    @include media-query (large){
+      gap: 4rem;
+    }
   }
   &__right {
     display: flex;
@@ -20,10 +23,12 @@
   }
 
   &__lists {
-    //display: none;
-
+     @include media-query(large){
+     margin: 0;
+     }
     &-container {
       display: none;
+      z-index: 99;
       position: absolute;
       top: 0;
       left: 0;
@@ -54,7 +59,8 @@
     @include media-query(large) {
       display: flex;
       margin-top: 0;
-      gap: 1rem; 
+      gap: 2rem;
+      
     }
   }
   &__link {
