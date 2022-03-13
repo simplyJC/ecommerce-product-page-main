@@ -19,7 +19,6 @@ main {
   }
 }
 .left-container {
-  //padding:1rem 2rem;
   @include media-query(large) {
     max-width: 30rem;
     padding: 2rem 2rem;
@@ -41,9 +40,8 @@ main {
     color: $clr-primary-orange;
     font-weight: 700;
   }
-  &__image{
-    
-    @include media-query(large){
+  &__image {
+    @include media-query(large) {
       border-radius: 0.5rem;
     }
   }
@@ -59,7 +57,7 @@ main {
     padding: 1rem 0;
     justify-content: space-between;
     align-items: center;
-    @include media-query (large){
+    @include media-query(large) {
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
@@ -164,6 +162,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
   @include media-query(large) {
     display: none;
   }
@@ -171,10 +170,12 @@ main {
 .arrow--previous {
   top: 50%;
   left: 1rem;
+  transform: translateY(-50%);
 }
 .arrow--next {
   top: 50%;
   right: 1rem;
+  transform: translateY(-50%);
 }
 
 //Footer

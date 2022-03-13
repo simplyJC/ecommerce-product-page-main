@@ -92,15 +92,32 @@
       </nav>
     </header>
     <main>
-      <div class="item left-container">
-        <div >
-          <img class="item__image" src="/images/image-product-1.jpg" alt="product" />
-        </div>
-
-        <button class="arrow--previous">
+      <div class="item left-container " data-carousel>
+        <!-- <div>
+          <img
+            class="item__image"
+            src="/images/image-product-1.jpg"
+            alt="product"
+          />
+        </div> -->
+        <ul class="slide-container" data-slides>
+          <li class="slide" data-active>
+            <img src="/images/image-product-1.jpg" alt="product 1" />
+          </li>
+          <li class="slide">
+            <img src="/images/image-product-2.jpg" alt="product 2" />
+          </li>
+          <li class="slide">
+            <img src="/images/image-product-3.jpg" alt="product 3" />
+          </li>
+          <!--  <li class="slide">
+            <img src="/images/image-product-4.jpg" alt="product 4" />
+          </li> -->
+        </ul>
+        <button class="arrow--previous" data-slide-button="previous">
           <img src="/images/icon-previous.svg" alt="previous" />
         </button>
-        <button class="arrow--next">
+        <button class="arrow--next" data-slide-button="next">
           <img src="/images/icon-next.svg" alt="next" />
         </button>
 

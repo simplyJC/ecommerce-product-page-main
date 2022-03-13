@@ -1,0 +1,22 @@
+@use '../abstracts/' as *;
+
+.slide {
+  &-container {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 200ms opacity ease-in-out;
+  transition-delay: 200ms;
+  &[data-active] {
+    border: 1px solid pink;
+    opacity: 1;
+    position: relative;
+    z-index: 1;
+    transition-delay: 0ms;
+  }
+}

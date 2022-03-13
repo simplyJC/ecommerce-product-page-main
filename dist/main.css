@@ -154,6 +154,27 @@ select {
   border-radius: 0.4rem;
 }
 
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 200ms opacity ease-in-out;
+  transition-delay: 200ms;
+}
+.slide-container {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.slide[data-active] {
+  border: 1px solid pink;
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+  transition-delay: 0ms;
+}
+
 body {
   width: 100%;
   font-size: 1rem;
@@ -314,6 +335,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 @media (min-width: 900px) {
   .arrow--previous,
@@ -325,11 +347,13 @@ body {
 .arrow--previous {
   top: 50%;
   left: 1rem;
+  transform: translateY(-50%);
 }
 
 .arrow--next {
   top: 50%;
   right: 1rem;
+  transform: translateY(-50%);
 }
 
 .attribution {
