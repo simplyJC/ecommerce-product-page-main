@@ -6,7 +6,7 @@
   top: 3.5rem;
   right: 0;
   margin: 1rem;
- z-index: 2;
+ z-index: 4;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -46,7 +46,9 @@
   }
 
   &-delete-container {
-    width: 2rem;
+    //width: 2rem;
+    border: none;
+    background: none;
   }
   &-btn-container {
     width: 100%;
@@ -61,4 +63,23 @@
     padding-block: 0.8rem;
     border-radius: 0.4rem;
   }
+
+  &__icon--container{
+    position: relative;
+  }
+  &__quantity-preview{
+    background: $clr-primary-orange;
+    font-size: 0.6rem;
+    padding: 0 0.3rem;
+    border-radius: 40%;
+    color: white;
+    font-weight: 700;
+    position: absolute;
+    top:-0.2rem;
+    left: 1rem;
+
+
+  }
 }
+
+

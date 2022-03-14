@@ -13,7 +13,6 @@
   transition: 200ms opacity ease-in-out;
   transition-delay: 200ms;
   &[data-active] {
-    border: 1px solid pink;
     opacity: 1;
     position: relative;
     z-index: 1;

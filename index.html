@@ -51,17 +51,20 @@
           </div>
         </div>
         <div class="nav__right">
-          <a href="#"
-            ><img
-              class="nav--add"
-              src="/images/icon-cart.svg"
-              alt="add to cart"
-              data-view-cart
-          /></a>
+          <div class="cart__icon--container">
+            <a href="#"
+              ><img
+                class="nav--add"
+                src="/images/icon-cart.svg"
+                alt="add to cart"
+                data-view-cart
+            /></a>
+            <span class="cart__quantity-preview" data-quantity-preview>2</span>
+          </div>
           <div class="cart" data-cart>
             <div class="cart-title"><span>Cart</span></div>
-            <div class="cart-bottom">
-              <div class="cart-body">
+            <div class="cart-bottom" data-cart-item-added>
+              <!-- <div class="cart-body">
                 <div class="cart-image-container">
                   <img src="/images/image-product-1-thumbnail.jpg" alt="item" />
                 </div>
@@ -75,10 +78,10 @@
               </div>
               <div class="cart-btn-container">
                 <button class="cart__btn--checkout">Checkout</button>
-              </div>
-              <!-- <div class="cart--empty">
-                <p>Your cart is empty</p>
               </div> -->
+              <div class="cart--empty">
+                <p>Your cart is empty</p>
+              </div>
             </div>
           </div>
 
@@ -110,9 +113,9 @@
           <li class="slide">
             <img src="/images/image-product-3.jpg" alt="product 3" />
           </li>
-          <!--  <li class="slide">
+           <li class="slide">
             <img src="/images/image-product-4.jpg" alt="product 4" />
-          </li> -->
+          </li>
         </ul>
         <button class="arrow--previous" data-slide-button="previous">
           <img src="/images/icon-previous.svg" alt="previous" />
@@ -161,15 +164,15 @@
         </div>
         <div class="item__quantity-container">
           <div class="item__quantity">
-            <button class="item__deduct">
+            <button class="item__deduct" data-quantity="deduct">
               <img src="/images/icon-minus.svg" alt="remove quantity" />
             </button>
-            <span class="item__count">0</span>
-            <button class="item__add">
+            <span class="item__count" data-item-count>0</span>
+            <button class="item__add" data-quantity="add">
               <img src="/images/icon-plus.svg" alt="add quantity" />
             </button>
           </div>
-          <button class="item__add-cart">
+          <button class="item__add-cart" data-add-to-cart>
             <svg
               class="item__icon-cart"
               width="22"

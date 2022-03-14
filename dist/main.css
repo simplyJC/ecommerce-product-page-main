@@ -100,7 +100,7 @@ select {
   top: 3.5rem;
   right: 0;
   margin: 1rem;
-  z-index: 2;
+  z-index: 4;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -139,7 +139,8 @@ select {
   border-radius: 0.3rem;
 }
 .cart-delete-container {
-  width: 2rem;
+  border: none;
+  background: none;
 }
 .cart-btn-container {
   width: 100%;
@@ -152,6 +153,20 @@ select {
   color: white;
   padding-block: 0.8rem;
   border-radius: 0.4rem;
+}
+.cart__icon--container {
+  position: relative;
+}
+.cart__quantity-preview {
+  background: #ff7d1a;
+  font-size: 0.6rem;
+  padding: 0 0.3rem;
+  border-radius: 40%;
+  color: white;
+  font-weight: 700;
+  position: absolute;
+  top: -0.2rem;
+  left: 1rem;
 }
 
 .slide {
@@ -168,7 +183,6 @@ select {
   list-style: none;
 }
 .slide[data-active] {
-  border: 1px solid pink;
   opacity: 1;
   position: relative;
   z-index: 1;
