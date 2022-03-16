@@ -94,26 +94,24 @@
         </div>
       </nav>
     </header>
-    <main>
-      <div class="item left-container " data-carousel>
-        <!-- <div>
-          <img
-            class="item__image"
-            src="/images/image-product-1.jpg"
-            alt="product"
-          />
-        </div> -->
+    <main data-main>
+      <div class="item left-container" data-carousel>
+        <div class="lightbox__button-container"  data-lightbox-button-close>
+          <button class="lightbox__button--close" >
+            <img src="/images/icon-close.svg" alt="button close test" />
+          </button>
+        </div>
         <ul class="slide-container" data-slides>
-          <li class="slide" data-active>
+          <li class="slide">
             <img src="/images/image-product-1.jpg" alt="product 1" />
           </li>
-          <li class="slide">
+          <li class="slide" data-active="true">
             <img src="/images/image-product-2.jpg" alt="product 2" />
           </li>
           <li class="slide">
             <img src="/images/image-product-3.jpg" alt="product 3" />
           </li>
-           <li class="slide">
+          <li class="slide">
             <img src="/images/image-product-4.jpg" alt="product 4" />
           </li>
         </ul>
@@ -124,26 +122,30 @@
           <img src="/images/icon-next.svg" alt="next" />
         </button>
 
-        <div class="item__thumbnails">
+        <div class="item__thumbnails" data-item-thumbnails>
           <img
             class="item__thumbnail"
+            data-item-thumbnail
             src="/images/image-product-1-thumbnail.jpg"
-            alt="product thumbnail"
+            alt="product thumbnail 1"
           />
           <img
             class="item__thumbnail"
+            data-item-thumbnail
             src="/images/image-product-2-thumbnail.jpg"
-            alt="product thumbnail"
+            alt="product thumbnail 2"
           />
           <img
             class="item__thumbnail"
+            data-item-thumbnail
             src="/images/image-product-3-thumbnail.jpg"
-            alt="product thumbnail"
+            alt="product thumbnail 3 "
           />
           <img
             class="item__thumbnail"
+            data-item-thumbnail
             src="/images/image-product-4-thumbnail.jpg"
-            alt="product thumbnail"
+            alt="product thumbnail 4"
           />
         </div>
       </div>
@@ -199,5 +201,6 @@
         >. Coded by <a href="#">Your Name Here</a>.
       </div>
     </footer>
+    <!-- <div class="lightbox"></div> -->
   </body>
 </html>

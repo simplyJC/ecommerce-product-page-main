@@ -1,0 +1,53 @@
+.lightbox {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  display: none;
+  overflow-y: hidden ;
+  &__image-container {
+    width: 25rem;
+  }
+  & .arrow--previous {
+    top: 40%;
+    left: -1rem;
+    transform: translateY(-50%);
+  }
+  & .arrow--next {
+    top: 40%;
+    right: -1rem;
+    transform: translateY(-50%);
+  }
+  &__button--close {
+    background: none;
+    border: none;
+
+    & img {
+      background-size: cover;
+      width: 1rem;
+    }
+  }
+  &__button-container {
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: flex-end;
+    z-index: 4;
+    display: none;
+  }
+  // .arrow--next {
+  //   top: 50%;
+  //   right: 1rem;
+  //   transform: translateY(-50%);
+  // }
+}
+.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

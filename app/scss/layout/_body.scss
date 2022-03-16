@@ -21,7 +21,8 @@ main {
 .left-container {
   @include media-query(large) {
     max-width: 30rem;
-    padding: 2rem 2rem;
+    //padding: 2rem 2rem;
+    margin: 4rem ;
   }
 }
 .right-container {
@@ -165,6 +166,7 @@ main {
   z-index: 2;
   @include media-query(large) {
     display: none;
+    //enable this later
   }
 }
 .arrow--previous {
