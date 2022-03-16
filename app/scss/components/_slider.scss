@@ -8,7 +8,8 @@
     pointer-events: none;
     @include media-query(large) {
       border-radius: 1rem;
-      pointer-events:auto;
+      pointer-events: auto;
+      cursor: pointer;
     }
   }
   position: absolute;
@@ -27,6 +28,27 @@
   & img {
     @include media-query(large) {
       border-radius: 1rem;
+    }
+  }
+  &__thumbnails {
+    display: none;
+    @include media-query(large) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__thumbnail {
+    margin: 1rem 0;
+    width: 5rem;
+    border-radius: 0.8rem;
+    &[data-thumbnail-active='true'] {
+      border: 2px solid $clr-primary-orange;
+      opacity: 0.5;
+    }
+    &:focus,
+    &:hover {
+      border: 2px solid $clr-primary-orange;
+      cursor: pointer;
     }
   }
 }

@@ -12,6 +12,7 @@ const itemQuantityPreview = document.querySelector('[data-quantity-preview]');
 const lightboxSlides = document.querySelector('[data-slides]');
 let lightboxSlidesContainer = document.querySelector('[data-carousel]');
 const slideImages = document.querySelectorAll('.slide');
+const thumbnailSlider = document.querySelectorAll('[data-item-thumbnail]');
 let deleteItem;
 let initialQuantity = parseInt(itemCount.innerText);
 let currentQuantity;
@@ -49,16 +50,13 @@ buttons.forEach((button) => {
   });
 });
 
-//mobile slider handler
-
-//Function Slider
-
 //Add to Cart
 const renderCartHandler = () => {
   let totalAmount;
   totalAmount = initialQuantity * 125.0;
-  viewItemCart.innerHTML = '';
-  viewItemCart.innerHTML = `<div class="cart-body">
+  if (initialQuantity) {
+    viewItemCart.innerHTML = '';
+    viewItemCart.innerHTML = `<div class="cart-body">
                 <div class="cart-image-container">
                   <img src="/images/image-product-1-thumbnail.jpg" alt="item" />
                 </div>
@@ -73,13 +71,16 @@ const renderCartHandler = () => {
               <div class="cart-btn-container">
                 <button class="cart__btn--checkout">Checkout</button>
               </div> `;
-  //Remove Item
-  deleteItem = document.querySelector('[data-delete-item]');
-  if (deleteItem) {
-    deleteItem.addEventListener('click', deleteCart);
+    //Remove Item
+    deleteItem = document.querySelector('[data-delete-item]');
+    if (deleteItem) {
+      deleteItem.addEventListener('click', deleteCart);
+    }
+    //set quantity at the top cart icon
+    itemQuantityPreview.innerText = itemCount.innerText;
+  } else {
+    alert('No item added. Please select quantity.');
   }
-  //set quantity at the top cart icon
-  itemQuantityPreview.innerText = itemCount.innerText;
 };
 
 //Add and Deduct Quantity
@@ -98,69 +99,40 @@ itemQuantity.forEach((quantity) => {
 function deleteCart() {
   viewItemCart.innerHTML = `<div class="cart--empty">
       <p>Your cart is empty</p>
-      </div>;`;
+      </div>`;
   itemQuantityPreview.innerText = '';
 }
 
-//Lightbox
+/**
+ * LightBox Desktop
+ * 01 - Create a copy of  Desktop Slider
+ */
+
 const lightboxSlidesHandler = (e) => {
   const lightbox = document.createElement('div');
-  //const closeButton = document.createElement('img');
-  //closeButton.classList.add('lightbox__button--close');
-
-  //const imageArray = [];
-  //const images = Array.of(document.querySelectorAll('.slide'));
-  const image = document.querySelector('.slide img');
-  const images = document.querySelectorAll('.slide img');
-  const newIMage = document.createElement('img');
-  newIMage.src = image.src;
-
-  const ul = document.querySelector('.slide-container');
-  let newDiv = document.createElement('div');
+  const newLightboxSlidesContainer =
+    lightboxSlidesContainer.cloneNode(true); /**01 */
+  const lightboxButton = newLightboxSlidesContainer.querySelectorAll(
+    '[data-slide-button]'
+  );
+  const newButtonClose = newLightboxSlidesContainer.querySelector(
+    '[ data-lightbox-button-close]'
+  );
+  const newThumbnailSlider = newLightboxSlidesContainer.querySelectorAll(
+    '[data-item-thumbnail]'
+  );
 
   lightbox.className = 'lightbox';
   document.body.appendChild(lightbox);
   lightbox.classList.add('active');
-  //lightbox.appendChild(closeButton);
-
-  // newDiv.appendChild(ul);
-  // lightbox.appendChild(newDiv);
-  //newUl = ul;
-  //lightbox.appendChild(newUL);
-  // imageArray.forEach((image) => {
-  //   lightbox.appendChild(image);
-  // });
-  //console.log(images);
-  //lightbox.appendChild(newIMage);
-  // images.forEach((picture) => {
-  //   console.log(picture);
-  //   lightbox.appendChild(picture);
-  // });
-
-  // lightbox.innerHTML = `<img src="/images/image-product-1.jpg" alt="product 1" />`;
-
-  const newLightboxSlidesContainer = lightboxSlidesContainer.cloneNode(true);
-  const lightboxButton = newLightboxSlidesContainer.querySelectorAll(
-    '[data-slide-button]'
-  );
-
-  const newButtonClose = newLightboxSlidesContainer.querySelector(
-    '[ data-lightbox-button-close]'
-  );
-
+   
   newButtonClose.style.display = 'flex';
   newButtonClose.addEventListener('click', () => {
     lightbox.classList.remove('active');
     lightbox.remove();
   });
-  //lightboxButton.classList.add('lightbox--button');
 
-  // newDataCarousel.innerHTML = `<div class="lightbox__button-container">
-  //         <button class="lightbox__button--close">
-  //           <img src="/images/icon-close.svg" alt="button close test" />
-  //         </button>
-  //       </div>`;
-
+  //Lightbox Slider
   lightboxButton.forEach((button) => {
     button.style.display = 'block';
     button.classList.add('lightbox__button');
@@ -183,22 +155,24 @@ const lightboxSlidesHandler = (e) => {
     });
   });
 
-  const newThumbnailSlider = newLightboxSlidesContainer.querySelectorAll(
-    '[data-item-thumbnail]'
-  );
-  console.log(newThumbnailSlider);
-
+  //Lightbox Thumbnail Selector
   newThumbnailSlider.forEach((thumbnail) => {
     thumbnail.addEventListener('click', () => {
-      console.log('its working');
       const slides = newLightboxSlidesContainer.querySelector('[data-slides]');
       const activeSlide = slides.querySelector('[data-active]');
+      const slidesThumbnail = newLightboxSlidesContainer.querySelector(
+        '[data-item-thumbnails]'
+      );
+      const activeSlideThumbnail = newLightboxSlidesContainer.querySelector(
+        '[data-thumbnail-active]'
+      );
+
       delete activeSlide.dataset.active;
+      delete activeSlideThumbnail.dataset.thumbnailActive;
       let newIndex = [...newThumbnailSlider].indexOf(thumbnail);
-      let activeThumbnail;
-      console.log(thumbnail);
       let currentSlide = (slides.children[newIndex].dataset.active = true);
       slides.children[newIndex].dataset.active = true;
+      slidesThumbnail.children[newIndex].dataset.thumbnailActive = true;
     });
   });
 
@@ -211,8 +185,8 @@ const lightboxSlidesHandler = (e) => {
   });
 };
 
-//Image Thumbnail Slider
-const thumbnailSlider = document.querySelectorAll('[data-item-thumbnail]');
+//Desktop Image Thumbnail Slider
+
 let currentIndex;
 thumbnailSlider.forEach((thumbnail) => {
   thumbnail.addEventListener('click', () => {
@@ -222,16 +196,11 @@ thumbnailSlider.forEach((thumbnail) => {
     const activeSlideThumbnail = slidesThumbnail.querySelector(
       '[data-thumbnail-active]'
     );
-    //console.log(activeSlideThumbnail);
     delete activeSlide.dataset.active;
-    console.log(activeSlide.dataset.active);
-    //delete activeSlideThumbnail.datasetThumbnail.active;
+    delete activeSlideThumbnail.dataset.thumbnailActive;
     let newIndex = [...thumbnailSlider].indexOf(thumbnail);
-    let activeThumbnail;
-    //console.log(thumbnail);
-    thumbnail.classList.add('item__thumbnails--active');
-    let currentSlide = (slides.children[newIndex].dataset.active = true);
     slides.children[newIndex].dataset.active = true;
+    slidesThumbnail.children[newIndex].dataset.thumbnailActive = true;
   });
 });
 

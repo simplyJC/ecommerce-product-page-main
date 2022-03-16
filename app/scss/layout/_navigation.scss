@@ -7,7 +7,6 @@
   padding: 0;
   position: relative;
   max-width: 70rem;
-  //margin: 0 auto;
   margin: 1rem;
   @include media-query(large) {
     border-bottom: 1px solid $clr-neutral-gray;
@@ -74,20 +73,11 @@
   &__avatar-container {
     width: 3rem;
     height: 3rem;
-    //margin: 1rem;
-    //border: 3px solid $clr-primary-orange;
-    //border-radius: 50%;
     &:hover,
     &:focus {
-      // padding: 1rem;
       border: 1px solid $clr-primary-orange;
       border-radius: 50%;
     }
-  }
-  &__avatar {
-    
-    //border: 3px solid $clr-primary-orange;
-    //border-radius: 50%;
   }
 
   &--close {
