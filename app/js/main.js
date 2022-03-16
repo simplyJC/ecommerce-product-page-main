@@ -103,6 +103,22 @@ function deleteCart() {
   itemQuantityPreview.innerText = '';
 }
 
+// Function Thumbnail Slider Selector
+function sliderImages(
+  slides,
+  slidesThumbnail,
+  activeSlide,
+  activeSlideThumbnail,
+  thumbnail,
+  ...thumbnailSlider
+) {
+  delete activeSlide.dataset.active;
+  delete activeSlideThumbnail.dataset.thumbnailActive;
+  let newIndex = [...thumbnailSlider].indexOf(thumbnail);
+  slides.children[newIndex].dataset.active = true;
+  slidesThumbnail.children[newIndex].dataset.thumbnailActive = true;
+}
+
 /**
  * LightBox Desktop
  * 01 - Create a copy of  Desktop Slider
@@ -125,7 +141,7 @@ const lightboxSlidesHandler = (e) => {
   lightbox.className = 'lightbox';
   document.body.appendChild(lightbox);
   lightbox.classList.add('active');
-   
+
   newButtonClose.style.display = 'flex';
   newButtonClose.addEventListener('click', () => {
     lightbox.classList.remove('active');
@@ -166,13 +182,14 @@ const lightboxSlidesHandler = (e) => {
       const activeSlideThumbnail = newLightboxSlidesContainer.querySelector(
         '[data-thumbnail-active]'
       );
-
-      delete activeSlide.dataset.active;
-      delete activeSlideThumbnail.dataset.thumbnailActive;
-      let newIndex = [...newThumbnailSlider].indexOf(thumbnail);
-      let currentSlide = (slides.children[newIndex].dataset.active = true);
-      slides.children[newIndex].dataset.active = true;
-      slidesThumbnail.children[newIndex].dataset.thumbnailActive = true;
+      sliderImages(
+        slides,
+        slidesThumbnail,
+        activeSlide,
+        activeSlideThumbnail,
+        thumbnail,
+        ...newThumbnailSlider
+      );
     });
   });
 
@@ -185,7 +202,7 @@ const lightboxSlidesHandler = (e) => {
   });
 };
 
-//Desktop Image Thumbnail Slider
+//Desktop Image Thumbnail Selector
 
 let currentIndex;
 thumbnailSlider.forEach((thumbnail) => {
@@ -196,14 +213,18 @@ thumbnailSlider.forEach((thumbnail) => {
     const activeSlideThumbnail = slidesThumbnail.querySelector(
       '[data-thumbnail-active]'
     );
-    delete activeSlide.dataset.active;
-    delete activeSlideThumbnail.dataset.thumbnailActive;
-    let newIndex = [...thumbnailSlider].indexOf(thumbnail);
-    slides.children[newIndex].dataset.active = true;
-    slidesThumbnail.children[newIndex].dataset.thumbnailActive = true;
+    sliderImages(
+      slides,
+      slidesThumbnail,
+      activeSlide,
+      activeSlideThumbnail,
+      thumbnail,
+      ...thumbnailSlider
+    );
   });
 });
 
+//Handlers
 lightboxSlides.addEventListener('click', lightboxSlidesHandler);
 addToCart.addEventListener('click', renderCartHandler);
 openMenu.addEventListener('click', openMenuHandler);
