@@ -5,6 +5,11 @@ body {
   width: 100%;
   font-size: 1rem;
   font-family: $ff-primary;
+  @include media-query(large) {
+    display: grid;
+    align-items: flex-start;
+    justify-content:center;
+  }
 }
 //Item Design
 main {
@@ -22,7 +27,7 @@ main {
   @include media-query(large) {
     max-width: 30rem;
     //padding: 2rem 2rem;
-    margin: 4rem ;
+    margin: 4rem;
   }
 }
 .right-container {

@@ -3,10 +3,10 @@
   background: $clr-neutral-white;
   max-width: 20rem;
   position: absolute;
-  top: 3.5rem;
+  top: 4rem;
   right: 0;
   margin: 1rem;
- z-index: 4;
+  z-index: 4;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -17,13 +17,13 @@
   }
   &--empty {
     padding: 2rem 2rem;
-    width:20rem;
+    width: 20rem;
     //height: 10rem;
 
-    & p{
-     padding: 2rem 3rem;
-     text-align: center;
-     display: block;
+    & p {
+      padding: 2rem 3rem;
+      text-align: center;
+      display: block;
     }
   }
   &-title {
@@ -65,10 +65,10 @@
     border-radius: 0.4rem;
   }
 
-  &__icon--container{
+  &__icon--container {
     position: relative;
   }
-  &__quantity-preview{
+  &__quantity-preview {
     background: $clr-primary-orange;
     font-size: 0.6rem;
     padding: 0 0.3rem;
@@ -76,11 +76,7 @@
     color: white;
     font-weight: 700;
     position: absolute;
-    top:-0.2rem;
+    top: -0.2rem;
     left: 1rem;
-
-
   }
 }
-
-

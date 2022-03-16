@@ -97,7 +97,7 @@ select {
   background: white;
   max-width: 20rem;
   position: absolute;
-  top: 3.5rem;
+  top: 4rem;
   right: 0;
   margin: 1rem;
   z-index: 4;
@@ -254,6 +254,13 @@ body {
   width: 100%;
   font-size: 1rem;
   font-family: "Kumbh Sans", sans-serif;
+}
+@media (min-width: 900px) {
+  body {
+    display: grid;
+    align-items: flex-start;
+    justify-content: center;
+  }
 }
 
 @media (min-width: 900px) {
@@ -450,10 +457,16 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0;
   position: relative;
-  max-width: 80rem;
-  margin: 0 auto;
+  max-width: 70rem;
+  margin: 1rem;
+}
+@media (min-width: 900px) {
+  .nav {
+    border-bottom: 1px solid #b6bcc8;
+    padding: 2rem 0;
+  }
 }
 .nav__left {
   display: flex;
@@ -486,7 +499,7 @@ body {
   z-index: 99;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -1rem;
   background: white;
   width: 50vw;
   height: 100vh;
@@ -520,8 +533,13 @@ body {
 .nav__link {
   text-decoration: none;
 }
-.nav__avatar {
-  max-width: 1.5rem;
+.nav__avatar-container {
+  width: 3rem;
+  height: 3rem;
+}
+.nav__avatar-container:hover, .nav__avatar-container:focus {
+  border: 1px solid #ff7d1a;
+  border-radius: 50%;
 }
 .nav--close {
   display: block;

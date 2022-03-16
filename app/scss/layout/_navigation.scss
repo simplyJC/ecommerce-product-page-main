@@ -4,15 +4,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0;
   position: relative;
-  max-width: 80rem;
-  margin: 0 auto;
+  max-width: 70rem;
+  //margin: 0 auto;
+  margin: 1rem;
+  @include media-query(large) {
+    border-bottom: 1px solid $clr-neutral-gray;
+    padding: 2rem 0;
+  }
+
   &__left {
     display: flex;
     align-items: center;
     gap: 1rem;
-    @include media-query (large){
+    @include media-query(large) {
       gap: 4rem;
     }
   }
@@ -23,15 +29,15 @@
   }
 
   &__lists {
-     @include media-query(large){
-     margin: 0;
-     }
+    @include media-query(large) {
+      margin: 0;
+    }
     &-container {
       display: none;
       z-index: 99;
       position: absolute;
       top: 0;
-      left: 0;
+      left: -1rem;
       background: $clr-neutral-white;
       width: 50vw;
       height: 100vh;
@@ -60,14 +66,28 @@
       display: flex;
       margin-top: 0;
       gap: 2rem;
-      
     }
   }
   &__link {
     text-decoration: none;
   }
+  &__avatar-container {
+    width: 3rem;
+    height: 3rem;
+    //margin: 1rem;
+    //border: 3px solid $clr-primary-orange;
+    //border-radius: 50%;
+    &:hover,
+    &:focus {
+      // padding: 1rem;
+      border: 1px solid $clr-primary-orange;
+      border-radius: 50%;
+    }
+  }
   &__avatar {
-    max-width: 1.5rem;
+    
+    //border: 3px solid $clr-primary-orange;
+    //border-radius: 50%;
   }
 
   &--close {

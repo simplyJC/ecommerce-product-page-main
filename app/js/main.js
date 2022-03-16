@@ -211,23 +211,31 @@ const lightboxSlidesHandler = (e) => {
   });
 };
 
-lightboxSlides.addEventListener('click', lightboxSlidesHandler);
 //Image Thumbnail Slider
 const thumbnailSlider = document.querySelectorAll('[data-item-thumbnail]');
 let currentIndex;
 thumbnailSlider.forEach((thumbnail) => {
   thumbnail.addEventListener('click', () => {
     const slides = document.querySelector('[data-slides]');
+    const slidesThumbnail = document.querySelector('[data-item-thumbnails]');
     const activeSlide = slides.querySelector('[data-active]');
+    const activeSlideThumbnail = slidesThumbnail.querySelector(
+      '[data-thumbnail-active]'
+    );
+    //console.log(activeSlideThumbnail);
     delete activeSlide.dataset.active;
+    console.log(activeSlide.dataset.active);
+    //delete activeSlideThumbnail.datasetThumbnail.active;
     let newIndex = [...thumbnailSlider].indexOf(thumbnail);
     let activeThumbnail;
-    console.log(thumbnail);
+    //console.log(thumbnail);
+    thumbnail.classList.add('item__thumbnails--active');
     let currentSlide = (slides.children[newIndex].dataset.active = true);
     slides.children[newIndex].dataset.active = true;
   });
 });
 
+lightboxSlides.addEventListener('click', lightboxSlidesHandler);
 addToCart.addEventListener('click', renderCartHandler);
 openMenu.addEventListener('click', openMenuHandler);
 closeMenu.addEventListener('click', closeMenuHandler);
