@@ -138,7 +138,7 @@ main {
       padding: 1rem 3rem;
     }
     &:hover {
-      background: darken($clr-primary-orange, 10%);
+      background: lighten($clr-primary-orange, 10%);
     }
     &:active {
       transform: translateY(8%);

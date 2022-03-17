@@ -74,17 +74,14 @@
     font-weight: 700;
     color: $clr-neutral-dark-blue;
     position: relative;
-    &:focus,
-    &:hover {
-      color: $clr-primary-orange;
-    }
+  
     &::before {
       content: '';
       position: absolute;
       display: block;
       width: 100%;
-      height: 3px;
-      bottom: -6px;
+      height: 6px;
+      bottom: -47px;
       left: 0;
       background-color: $clr-primary-orange;
       transform: scaleX(0);
@@ -92,6 +89,7 @@
     }
     &:hover::before {
       transform: scaleX(1);
+      
     }
   }
   &__avatar-container {

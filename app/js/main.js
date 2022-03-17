@@ -66,7 +66,7 @@ const renderCartHandler = () => {
                 </div>
                 <div class="cart-description">
                   <p>Autumn Limited Edition</p>
-                  <p>$125 x ${itemCount.innerText} <strong>${totalAmount}.00</strong></p>
+                  <p>$125 x ${itemCount.innerText} = <strong>$${totalAmount}.00</strong></p>
                 </div>
                 <button class="cart-delete-container" data-delete-item>
                   <img src="/images/icon-delete.svg" alt="delete" />

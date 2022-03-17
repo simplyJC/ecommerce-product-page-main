@@ -422,7 +422,7 @@ body {
   }
 }
 .item__add-cart:hover {
-  background: #e66300;
+  background: #ff9a4d;
 }
 .item__add-cart:active {
   transform: translateY(8%);
@@ -583,16 +583,13 @@ body {
   color: #1d2025;
   position: relative;
 }
-.nav__link:focus, .nav__link:hover {
-  color: #ff7d1a;
-}
 .nav__link::before {
   content: "";
   position: absolute;
   display: block;
   width: 100%;
-  height: 3px;
-  bottom: -6px;
+  height: 6px;
+  bottom: -47px;
   left: 0;
   background-color: #ff7d1a;
   transform: scaleX(0);
