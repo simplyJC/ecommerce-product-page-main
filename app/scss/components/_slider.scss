@@ -47,8 +47,8 @@
     }
     &:focus,
     &:hover {
-      border: 2px solid $clr-primary-orange;
       cursor: pointer;
+      opacity: 0.5;
     }
   }
 }
