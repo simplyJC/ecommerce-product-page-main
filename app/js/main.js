@@ -1,5 +1,6 @@
 const closeMenu = document.querySelector('.nav--close');
 const openMenu = document.querySelector('.nav--open');
+const mobileBackdrop = document.querySelector('.mobile-backdrop');
 const navMenu = document.querySelector('[data-nav-menu]');
 const cartView = document.querySelector('[data-view-cart]');
 const cart = document.querySelector('[data-cart]');
@@ -20,9 +21,11 @@ let currentQuantity;
 //Show Menu
 const closeMenuHandler = () => {
   navMenu.classList.remove('nav__lists-container--show');
+  mobileBackdrop.classList.remove('mobile-backdrop--show');
 };
 const openMenuHandler = () => {
   navMenu.classList.add('nav__lists-container--show');
+  mobileBackdrop.classList.add('mobile-backdrop--show');
 };
 
 //View Cart
@@ -53,6 +56,7 @@ buttons.forEach((button) => {
 //Add to Cart
 const renderCartHandler = () => {
   let totalAmount;
+
   totalAmount = initialQuantity * 125.0;
   if (initialQuantity) {
     viewItemCart.innerHTML = '';
@@ -229,4 +233,5 @@ lightboxSlides.addEventListener('click', lightboxSlidesHandler);
 addToCart.addEventListener('click', renderCartHandler);
 openMenu.addEventListener('click', openMenuHandler);
 closeMenu.addEventListener('click', closeMenuHandler);
+mobileBackdrop.addEventListener('click', closeMenuHandler);
 cartView.addEventListener('click', cartViewHandler);

@@ -35,10 +35,10 @@
       display: none;
       z-index: 99;
       position: absolute;
-      top: 0;
+      top: -1rem;
       left: -1rem;
       background: $clr-neutral-white;
-      width: 50vw;
+      width: 60vw;
       height: 100vh;
       padding: 1rem 2rem 1rem 1rem;
       animation: slide-in 0.3s ease-in;
@@ -51,6 +51,7 @@
         align-self: flex-start;
         animation: none;
         display: flex;
+        top: 0;
       }
       &--show {
         display: block;
@@ -69,6 +70,29 @@
   }
   &__link {
     text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $clr-neutral-dark-blue;
+    position: relative;
+    &:focus,
+    &:hover {
+      color: $clr-primary-orange;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 3px;
+      bottom: -6px;
+      left: 0;
+      background-color: $clr-primary-orange;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    &:hover::before {
+      transform: scaleX(1);
+    }
   }
   &__avatar-container {
     width: 3rem;
@@ -104,5 +128,22 @@
   100% {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+.mobile-backdrop {
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  height: 100vh;
+  width: 100vw;
+  z-index: 5;
+  display: none;
+  &--show {
+    display: block;
+  }
+  @include media-query(large) {
+    display: none;
   }
 }
